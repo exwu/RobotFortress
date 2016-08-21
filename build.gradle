@@ -80,6 +80,7 @@ project(":android") {
 
 project(":core") {
     apply plugin: "java"
+    apply plugin: "scala"
 
 
     dependencies {
@@ -89,9 +90,11 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
         compile "com.badlogicgames.box2dlights:box2dlights:$box2DLightsVersion"
         compile "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+        compile "org.scala-lang:scala-library:2.11.7"
     }
 }
 
 tasks.eclipse.doLast {
     delete ".project"
 }
+

@@ -2,11 +2,11 @@ package com.braintrust.game.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.braintrust.game.RobotFortress;
+import gdx.FortressGame;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new RobotFortress(), config);
+		new LwjglApplication(new FortressGame(), config);
 	}
 }
