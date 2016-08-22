@@ -4,9 +4,12 @@ package game_logic
   * Created by Emily on 8/20/2016.
   */
 class Entity (val id: Int) {
+
   var stringComponents: Map[String, String] = Map()
   var intComponents: Map[String, Int] = Map()
   var floatComponents: Map[String, Float] = Map()
+
+  intComponents = intComponents + (Components.ID -> id)
 
   def apply(component: String): Any = {
     if (stringComponents contains component) return stringComponents(component)
