@@ -9,7 +9,17 @@ class Entity (val id: Int) {
   var intComponents: Map[String, Int] = Map()
   var floatComponents: Map[String, Float] = Map()
 
-  intComponents = intComponents + (Components.ID -> id)
+  intComponents = intComponents + (C.ID -> id)
+
+  create()
+
+  def create(): Unit = {
+    GameInstance.ids += id -> this
+  }
+
+  def destroy(): Unit = {
+    GameInstance.ids -= id
+  }
 
   def apply(component: String): Any = {
     if (stringComponents contains component) return stringComponents(component)
@@ -47,4 +57,13 @@ class Entity (val id: Int) {
     if (intComponents contains name) intComponents = intComponents - name
     if (floatComponents contains name) floatComponents = floatComponents - name
   }
+
+  override def toString(): String = {
+    "<<<" + id + ">>>" + "\n" + stringComponents.toString + "\n" + intComponents.toString + "\n" + floatComponents.toString()
+  }
+
+  override def equals(other: Any): Boolean = {
+    other.isInstanceOf[Entity] && other.asInstanceOf[Entity].id == this.id
+  }
+
 }
