@@ -4,7 +4,7 @@ import com.badlogic.gdx.input.GestureDetector
 import com.badlogic.gdx.input.GestureDetector.{GestureAdapter, GestureListener}
 import com.badlogic.gdx.{InputAdapter, InputProcessor, Gdx, Screen}
 import com.badlogic.gdx.graphics.{Texture, GL20, OrthographicCamera}
-import game_logic.GameInstance
+import game_logic.{Terrain, GameInstance}
 import game_logic.system.RenderSystem
 
 /**
@@ -42,7 +42,8 @@ class WorldScreen(game: FortressGame) extends Screen {
     camera.update()
     game.batch.setProjectionMatrix(camera.combined);
     game.batch.begin()
-    RenderSystem.update(game.batch, GameInstance.entities())
+    Terrain.render(game.batch)
+    RenderSystem.draw(game.batch, GameInstance.entities())
     game.batch.end()
   }
 

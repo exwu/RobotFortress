@@ -11,9 +11,9 @@ import game_logic.{Entity, GameMap, C}
 object RenderSystem {
 
   val robot_sprite = new Texture(Gdx.files.internal("robot_sprite.png"))
-  val grid_size = 100
+  val grid_size = 64
 
-  def update(batch : SpriteBatch, entities: Iterable[Entity]): Unit = {
+  def draw(batch : SpriteBatch, entities: Iterable[Entity]): Unit = {
     for (entity <- entities) {
       if (entity.getInt(C.VISIBLE).getOrElse(0) == 1) {
         val (x, y, z) = GameMap.getPOS(entity)

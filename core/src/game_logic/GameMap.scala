@@ -1,5 +1,6 @@
 package game_logic
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
 
 
 /**
@@ -27,7 +28,6 @@ object GameMap {
     assert(map.get((x, y, z)).get.contains(entity))
     (x, y, z)
   }
-
 
   def move(entity: Entity, newX: Int, newZ: Int): Unit = {
     removeFromMap(entity)
